@@ -5,10 +5,18 @@
  */
 package javaapplication4;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author massa
  */
 public class Sortings {
+    
+    private ArrayList numeros;
+    
+    public Sortings (){
+        
+    }
     
 }
