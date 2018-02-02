@@ -9,7 +9,7 @@ package javaapplication4;
  *
  * @author cooli
  */
-public class JavaApplication4 {
+public class Principal{
 
     /**
      * @param args the command line arguments
