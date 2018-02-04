@@ -20,13 +20,13 @@ public class Sortings {
     }
     private int[] Gnome(){
     int[] list = new int[3000];
-   for ( int i = 1; i < theArray.length; ) { 
-         if ( theArray[i - 1] <= theArray[i] ) { 
+   for ( int i = 1; i < numeros.size(); ) { 
+         if((int)numeros.get(i-1) <=(int) numeros.get(i)){ 
             i++; 
          } else { 
-            int tempVal = theArray[i]; 
-            theArray[i] = theArray[i - 1]; 
-            theArray[i - 1] = tempVal; 
+            int tempVal = (int) numeros.get(i); 
+            numeros.set(i, numeros.get(i - 1)); 
+            numeros.set(i - 1, tempVal); 
             i--; 
             if ( i == 0 ) { 
                i = 1; 
@@ -36,5 +36,11 @@ public class Sortings {
         
         return null;
     } 
+    
+    private int[] QS(){
+        
+        
+        return null;
+    }
     
 }
