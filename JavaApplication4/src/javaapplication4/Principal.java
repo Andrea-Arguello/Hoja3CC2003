@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -22,7 +24,7 @@ public class Principal{
     public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
         
-        String expresion="";
+        ArrayList<Integer> expresion = new ArrayList<Integer>();
         File datos = null;
         FileReader reader = null;
         BufferedReader buffer = null;
@@ -32,14 +34,13 @@ public class Principal{
             buffer = new BufferedReader(reader);
             String ingreso;
             while ((ingreso = buffer.readLine()) != null) {
-                expresion = expresion + ingreso + " ";
+                expresion.add(Integer.parseInt(ingreso));
             }
-            
         } catch (Exception e) {
             
             
         }
-
+        
     }
     }
     

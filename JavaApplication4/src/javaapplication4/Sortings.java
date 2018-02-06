@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Sortings {
     
-    private ArrayList numeros;
+    private ArrayList<Integer> numeros;
     
     public Sortings (){
-        
+        numeros= new ArrayList<Integer>();
     }
     private int[] Gnome(){
     int[] list = new int[3000];
