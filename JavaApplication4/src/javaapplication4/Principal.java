@@ -23,7 +23,6 @@ public class Principal{
      */
     public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
-        
         ArrayList<Integer> expresion = new ArrayList<Integer>();
         File datos = null;
         FileReader reader = null;
@@ -36,6 +35,9 @@ public class Principal{
             while ((ingreso = buffer.readLine()) != null) {
                 expresion.add(Integer.parseInt(ingreso));
             }
+            
+        Sortings sorting = new Sortings(expresion); 
+        sorting.Gnome();
         } catch (Exception e) {
             
             

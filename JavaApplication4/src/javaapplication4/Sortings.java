@@ -15,11 +15,13 @@ public class Sortings {
     
     private ArrayList<Integer> numeros;
     
-    public Sortings (){
+    public Sortings (ArrayList<Integer> ingreso){
         numeros= new ArrayList<Integer>();
+        for(Integer i: ingreso){
+            numeros.add(i);
+        }
     }
-    private int[] Gnome(){
-    int[] list = new int[3000];
+    public ArrayList<Integer> Gnome(){
    for ( int i = 1; i < numeros.size(); ) { 
          if((int)numeros.get(i-1) <=(int) numeros.get(i)){ 
             i++; 
@@ -34,7 +36,7 @@ public class Sortings {
          } 
       }
         
-        return null;
+        return numeros;
     } 
     
     private int[] QS(){
