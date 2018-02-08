@@ -13,17 +13,17 @@ import java.util.ArrayList;
  */
 public class Sortings {
     
-    private ArrayList<Integer> numeros;
+    private ArrayList<Comparable> numeros;
     
-    public Sortings (ArrayList<Integer> ingreso){
-        numeros= new ArrayList<Integer>();
-        for(Integer i: ingreso){
-            numeros.add(i);
+    public Sortings (ArrayList<Comparable> ingreso){
+        numeros= new ArrayList<Comparable>();
+        for(Comparable i: ingreso){
         }
     }
-    public ArrayList<Integer> Gnome(){
+    
+    public ArrayList<Comparable> Gnome(){
    for ( int i = 1; i < numeros.size(); ) { 
-         if((int)numeros.get(i-1) <=(int) numeros.get(i)){ 
+         if((int)numeros.get(i-1) <=(int) numeros.get(i)){ //Se debe usar compareTo, devuelve -1 si es menor, 1 si es mayor, 0 si es igual
             i++; 
          } else { 
             int tempVal = (int) numeros.get(i); 
@@ -35,13 +35,26 @@ public class Sortings {
             }           
          } 
       }
-        
         return numeros;
+       
     } 
     
-    private int[] QS(){
+    private ArrayList<Comparable> QS(){
         
         
+        return null;
+    }
+    
+    private ArrayList<Comparable> Merge(){
+        for(Comparable i: numeros)
+        {
+            
+        }
+        return null;
+    }
+    
+    
+    private int[] Bubble(){
         return null;
     }
     
