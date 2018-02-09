@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Sortings {
     
     protected ArrayList<Comparable> numeros;
+    protected Merge merge;
     
     public Sortings (ArrayList<Comparable> ingreso){
         numeros= new ArrayList<Comparable>();
@@ -48,17 +49,10 @@ public class Sortings {
         return numeros;
     }
     
-    private ArrayList<Comparable> Merge(){
-        ArrayList<Comparable> ordenados=new ArrayList<Comparable>();
-        {
-            
-        }
-        return ordenados;
-    }
     
     /**
      * Realiza un bubble sort, complejidad de n^2
-     * @return 
+     * @return la lista ya ordenada
      */
     private ArrayList<Comparable> Bubble(){
         ArrayList<Comparable> ordenados=new ArrayList<Comparable>();
