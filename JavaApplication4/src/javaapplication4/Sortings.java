@@ -39,7 +39,6 @@ public class Sortings {
 
     
     protected ArrayList<Comparable> numeros;
-    protected Merge merge;
     
     public Sortings (ArrayList<Comparable> ingreso){
         numeros= new ArrayList<Comparable>();
@@ -50,23 +49,6 @@ public class Sortings {
         }
     }
     
-    public ArrayList<Comparable> Gnome(){
-   for ( int i = 1; i < numeros.size(); ) { 
-         if((int)numeros.get(i-1) <=(int) numeros.get(i)){ //Se debe usar compareTo, devuelve -1 si es menor, 1 si es mayor, 0 si es igual
-            i++; 
-         } else { 
-            int tempVal = (int) numeros.get(i); 
-            numeros.set(i, numeros.get(i - 1)); 
-            numeros.set(i - 1, tempVal); 
-            i--; 
-            if ( i == 0 ) { 
-               i = 1; 
-            }           
-         } 
-      }
-        return numeros;
-       
-    } 
     
     public static int partition(Comparable arr[], int low, int high){
         Comparable pivot = arr[high]; 
@@ -93,6 +75,8 @@ public class Sortings {
  
         return i+1;
     }
+    
+    
     private int QS(Comparable arr[], int low, int high){
         
          Comparable pivot = arr[high]; 
@@ -206,6 +190,7 @@ public class Sortings {
             k++;
         }
     }
+<<<<<<< HEAD
  
     // Main function that sorts arr[l..r] using
     // merge()
@@ -225,6 +210,9 @@ public class Sortings {
         }
     }
    /** Codigo obtenido de: https://www.geeksforgeeks.org/merge-sort/
+=======
+    
+>>>>>>> 12e34ef2fde38616d5070a64463c64e3e4beb5a1
     /**
      * Realiza un bubble sort, complejidad de n^2
      * @return la lista ya ordenada
