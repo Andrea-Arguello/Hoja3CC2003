@@ -24,33 +24,43 @@ public class Sortings {
         }
     }
 
-    public static Comparable[] gnome(Comparable[] lista, int i)
+    public Comparable[] gnome()
 	{
+            Comparable[] ordenados=new Comparable[3000];
 		int index = 0;
-
-		while (index < i)
+            for(Comparable i: numeros){
+                for(int j=0;j<numeros.length;j++){
+                ordenados[j]=i;
+                }
+		while (index < 3000)
 		{
 			if (index == 0)
 				index++;
-			if (lista[index].compareTo(lista[index-1]) >= 0)
+			if (ordenados[index].compareTo(ordenados[index-1]) >= 0)
 				index++;
 			else
 			{
 				Comparable temp;
-				temp = lista[index];
-				lista[index] = lista[index-1];
-				lista[index-1] = temp;
+				temp = ordenados[index];
+				ordenados[index] = ordenados[index-1];
+				ordenados[index-1] = temp;
 				index--;
 			}
 		}
-		return lista;
+		
 	}
+            return ordenados;
+        }
   // Code Contributed by Mohit Gupta_OMG
 // Extraido de https://ide.geeksforgeeks.org/index.php
 
-    
-    
-    
+    /**
+     *
+     * @param arr
+     * @param low
+     * @param high
+     * @return
+     */
     public static int partition(Comparable arr[], int low, int high){
         Comparable pivot = arr[high]; 
         int i = (low-1); // index of smaller element
@@ -78,7 +88,7 @@ public class Sortings {
     }
     
     
-    private int QS(Comparable arr[], int low, int high){
+    public int QS(Comparable arr[], int low, int high){
         
          Comparable pivot = arr[high]; 
         int i = (low-1); // index of smaller element

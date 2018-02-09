@@ -5,6 +5,7 @@
  */
 package javaapplication4;
 
+import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,7 +15,17 @@ import static org.junit.Assert.*;
  */
 public class SortingsTest {
     
+    private Sortings sort;
+    private ArrayList<Comparable> prueba;
+    
     public SortingsTest() {
+        prueba= new ArrayList<Comparable>();
+        for(int i=0; i<10; i++)
+        {
+            prueba.set(i,(int) Math.floor(Math.random()*3000)+1);
+            System.out.println(prueba.get(i));
+        }
+        sort= new Sortings(prueba);
     }
 
     /**
@@ -22,7 +33,18 @@ public class SortingsTest {
      */
     @Test
     public void testGnome() {
-        
+        sort.gnome();
+        boolean expected= true;
+        boolean real=false;
+        for(int i=1; i<prueba.size();i++){
+            if(prueba.get(i+1).compareTo(prueba.get(i))==-1){
+                real=false;
+            }
+            else{
+                real=true;
+            }
+        }
+        assertEquals(expected, real);
     }
 
     /**
