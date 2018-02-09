@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author massa
  */
 public class Sortings {
+
     public static Comparable[] gnome(Comparable[] lista, int i)
 	{
 		int index = 0;
@@ -35,23 +36,69 @@ public class Sortings {
 	}
   // Code Contributed by Mohit Gupta_OMG
 // Extraido de https://ide.geeksforgeeks.org/index.php
+
+    
+    protected ArrayList<Comparable> numeros;
+    
+    public Sortings (ArrayList<Comparable> ingreso){
+        numeros= new ArrayList<Comparable>();
+        for(Comparable i: ingreso){
+            for(int j=0;j<ingreso.size();j++){
+            numeros.set(j,i);
+            }
+        }
+    }
+    
+    public ArrayList<Comparable> Gnome(){
+   for ( int i = 1; i < numeros.size(); ) { 
+         if((int)numeros.get(i-1) <=(int) numeros.get(i)){ //Se debe usar compareTo, devuelve -1 si es menor, 1 si es mayor, 0 si es igual
+            i++; 
+         } else { 
+            int tempVal = (int) numeros.get(i); 
+            numeros.set(i, numeros.get(i - 1)); 
+            numeros.set(i - 1, tempVal); 
+            i--; 
+            if ( i == 0 ) { 
+               i = 1; 
+            }           
+         } 
+      }
+        return numeros;
+       
+    } 
+    
+
     private ArrayList<Comparable> QS(){
         
         
-        return null;
+        return numeros;
     }
     
     private ArrayList<Comparable> Merge(){
-        for(Comparable i: numeros)
+        ArrayList<Comparable> ordenados=new ArrayList<Comparable>();
         {
             
         }
-        return null;
+        return ordenados;
     }
     
-    
-    private int[] Bubble(){
-        return null;
+    /**
+     * Realiza un bubble sort, complejidad de n^2
+     * @return 
+     */
+    private ArrayList<Comparable> Bubble(){
+        ArrayList<Comparable> ordenados=new ArrayList<Comparable>();
+        for(int i=0; i<numeros.size();i++){
+            for(int j=0; j<numeros.size()-i; j++){
+            int resultado=numeros.get(j).compareTo(numeros.get(j+1));
+            if(resultado==1){
+                Comparable mayor=numeros.get(j);
+                Comparable menor=numeros.get(j+1);
+                ordenados.set(j+1, mayor);
+                ordenados.set(j,menor);}
+            }
+        }
+        return ordenados;
     }
     
 }

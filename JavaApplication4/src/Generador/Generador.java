@@ -5,7 +5,9 @@
  */
 package Generador;
 
-import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -13,15 +15,54 @@ import java.util.ArrayList;
  */
 public class Generador {
 
+    private static final String FILENAME = "CONCATENAR.txt";
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         // TODO code application logic here
-        ArrayList<Integer> numeros= new ArrayList<Integer>();
+        String numeros="";
         for(int i=0; i<3000; i++){
-            Math.random();
+            numeros+=String.valueOf(Math.random()) + "\n";
         }
-    }
+
+
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+
+		try {
+
+			String content = numeros;
+
+			fw = new FileWriter(FILENAME);
+			bw = new BufferedWriter(fw);
+			bw.write(content);
+
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (bw != null)
+					bw.close();
+
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+
+			}
+
+		}
+
+	}
+
+    
     
 }

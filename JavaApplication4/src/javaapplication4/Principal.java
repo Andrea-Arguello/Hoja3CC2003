@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-
+import Generador.Generador;
 /**
  *
  * @author cooli
@@ -35,10 +35,9 @@ public class Principal{
                 expresion.add(Integer.parseInt(ingreso));
             }
         Sortings sorting = new Sortings(expresion); 
-        sorting.Gnome();
+            System.out.println("Que sorting desea utilizar?\n 1. Gnome\n 2. Merge\n 3. Quicksort\n 4. Radix\n 5. Bubble");
         } catch (Exception e) {
-            
-            
+            System.out.println("Este archivo no existe");
         }
         
     }
