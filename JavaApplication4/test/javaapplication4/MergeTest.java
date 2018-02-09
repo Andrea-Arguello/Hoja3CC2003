@@ -27,7 +27,7 @@ public class MergeTest {
        for(int i=0; i<10; i++)
         {
             System.out.println("Sin ordenar");
-            prueba.set(i, ((int) Math.floor(Math.random()*3000)+1));
+            prueba.add(((int) Math.floor(Math.random()*3000)+1));
             System.out.println(prueba.get(i));
         }
         
@@ -61,10 +61,10 @@ public class MergeTest {
        for(int i=0; i<5; i++)
         {
             System.out.println("Prueba uno:");
-            prueba1.set(i, (int) Math.floor(Math.random()*3000)+1);
+            prueba1.add((int) Math.floor(Math.random()*3000)+1);
             System.out.println(prueba1.get(i));
             System.out.println("Prueba dos:");
-            prueba2.set(i, (int) Math.floor(Math.random()*3000)+1);
+            prueba2.add((int) Math.floor(Math.random()*3000)+1);
             System.out.println(prueba2.get(i));
         }
         

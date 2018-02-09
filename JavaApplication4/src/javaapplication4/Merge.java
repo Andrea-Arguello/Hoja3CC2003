@@ -15,37 +15,27 @@ public class Merge {
     
     public ArrayList<Comparable> dividir(ArrayList<Comparable> numeros){
     
-            int mitad=numeros.size()/2;
+            int mitad=(int)Math.floor(numeros.size()/2);
             ArrayList<Comparable> primeramitad=new ArrayList<Comparable>();
             ArrayList<Comparable> segundamitad=new ArrayList<Comparable>();
             ArrayList<Comparable> resultado=new ArrayList<Comparable>();
-            if(numeros.size() % 2 == 0)
-            {
                 for(int i=0; i<mitad+1; i ++)
                 {
-                    primeramitad.set(i, numeros.get(i));
+                    primeramitad.add(numeros.get(i));
                 }
                 for(int i=mitad+1; i<numeros.size(); i ++)
                 {
-                    segundamitad.set(i, numeros.get(i));
+                    segundamitad.add(numeros.get(i));
                 }
-            }
-            else{
-                for(int i=0; i<mitad+2; i ++)
-                {
-                    primeramitad.set(i, numeros.get(i));
-                }
-                for(int i=mitad+2; i<numeros.size(); i ++)
-                {
-                    segundamitad.set(i-(mitad+2), numeros.get(i));
-                }
+            
+            
                 primeramitad=dividir(primeramitad);
                 segundamitad=dividir(segundamitad);
                 resultado=unir(primeramitad,segundamitad);
-                
+                return resultado;
             }
-            return resultado;
-        }
+        
+
     
     public ArrayList<Comparable> unir(ArrayList<Comparable> uno, ArrayList<Comparable> dos){
         ArrayList<Comparable> resultadofinal= new ArrayList<Comparable>();

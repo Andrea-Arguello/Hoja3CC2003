@@ -39,7 +39,6 @@ public class Sortings {
 
     
     protected ArrayList<Comparable> numeros;
-    protected Merge merge;
     
     public Sortings (ArrayList<Comparable> ingreso){
         numeros= new ArrayList<Comparable>();
@@ -50,23 +49,6 @@ public class Sortings {
         }
     }
     
-    public ArrayList<Comparable> Gnome(){
-   for ( int i = 1; i < numeros.size(); ) { 
-         if((int)numeros.get(i-1) <=(int) numeros.get(i)){ //Se debe usar compareTo, devuelve -1 si es menor, 1 si es mayor, 0 si es igual
-            i++; 
-         } else { 
-            int tempVal = (int) numeros.get(i); 
-            numeros.set(i, numeros.get(i - 1)); 
-            numeros.set(i - 1, tempVal); 
-            i--; 
-            if ( i == 0 ) { 
-               i = 1; 
-            }           
-         } 
-      }
-        return numeros;
-       
-    } 
     
     public static int partition(Comparable arr[], int low, int high){
         Comparable pivot = arr[high]; 
@@ -93,6 +75,8 @@ public class Sortings {
  
         return i+1;
     }
+    
+    
     private int QS(Comparable arr[], int low, int high){
         
          Comparable pivot = arr[high]; 
@@ -158,9 +142,6 @@ public class Sortings {
         }
         return ordenados;
     }
-=======
-    
->>>>>>> 7c2708d111a61c337b11b19e785e583a3ed8af78
     
     /**
      * Realiza un bubble sort, complejidad de n^2
