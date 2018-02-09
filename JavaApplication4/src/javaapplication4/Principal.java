@@ -23,6 +23,7 @@ public class Principal{
     public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
         ArrayList<Comparable> expresion = new ArrayList<Comparable>();
+        int[] listaexpresion = new int[3000];
         File datos = null;
         FileReader reader = null;
         BufferedReader buffer = null;
@@ -33,8 +34,13 @@ public class Principal{
             String ingreso;
             while ((ingreso = buffer.readLine()) != null) {
                 expresion.add(Integer.parseInt(ingreso));
+                for(int i=0; i<listaexpresion.length;i++){
+                    listaexpresion[i]=Integer.parseInt(ingreso);
+                }
             }
         Sortings sorting = new Sortings(expresion); 
+        Radix radix = new Radix();
+        radix.radixSort(listaexpresion);
             System.out.println("Que sorting desea utilizar?\n 1. Gnome\n 2. Merge\n 3. Quicksort\n 4. Radix\n 5. Bubble");
         } catch (Exception e) {
             System.out.println("Este archivo no existe");
