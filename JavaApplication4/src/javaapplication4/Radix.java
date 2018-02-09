@@ -11,24 +11,20 @@ import java.util.Queue;
 
 /**
  *
- * @author cooli
+ * @author Edd Mann from http://eddmann.com/posts/least-significant-digit-lsd-radix-sort-in-java/
  */
-public class Radix {
-
-    private static boolean isSorted(ArrayList<Comparable> numbers)
-    {
-        boolean result;
-        for (int i = 1; i < numbers.size(); i++){
-            int resultado=numbers.get(i - 1).compareTo(numbers.get(i));
-            if (resultado==-1){  
-            }
-
+public class Radix {  
+    
+    public Radix(){
         
-        }
-        return ;
-    }    
- 
-    public static void radixSort(int[] arr)
+    }
+   
+    /**
+     * 
+     * @param ingreso lista de enteros al azar
+     * @return lista de enteros ya ordenados
+     */
+    public int[] radixSort(int[] ingreso)
     {
         Queue<Integer>[] buckets = new Queue[10];
         for (int i = 0; i < 10; i++)
@@ -40,7 +36,7 @@ public class Radix {
         while ( ! sorted) {
             sorted = true;
 
-            for (int item : arr) {
+            for (int item : ingreso) {
                 int bucket = (item / expo) % 10;
                 if (bucket > 0) sorted = false;
                 buckets[bucket].add(item);
@@ -51,9 +47,9 @@ public class Radix {
 
             for (Queue<Integer> bucket : buckets)
                 while ( ! bucket.isEmpty())
-                    arr[index++] = bucket.remove();
+                    ingreso[index++] = bucket.remove();
         }
 
-        assert isSorted(arr);
+        return ingreso;
     }
 }

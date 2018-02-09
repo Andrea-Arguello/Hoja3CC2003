@@ -23,9 +23,8 @@ public class Generador {
         // TODO code application logic here
         String numeros="";
         for(int i=0; i<3000; i++){
-            numeros+=String.valueOf(Math.random()) + "\n";
+            numeros+=String.valueOf((int)Math.floor(Math.random()*3000)+1) + "\n";
         }
-
 
 		BufferedWriter bw = null;
 		FileWriter fw = null;

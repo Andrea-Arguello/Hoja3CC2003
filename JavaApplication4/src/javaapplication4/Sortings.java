@@ -39,6 +39,7 @@ public class Sortings {
 
     
     protected ArrayList<Comparable> numeros;
+    protected Merge merge;
     
     public Sortings (ArrayList<Comparable> ingreso){
         numeros= new ArrayList<Comparable>();
@@ -123,6 +124,7 @@ public class Sortings {
         return arr;
         return numeros;
     }
+<<<<<<< HEAD
     // Codigo obtenido de: http://www.geeksforgeeks.org/iterative-quick-sort/
     /*This code is contributed by Rajat Mishra */
     private ArrayList<Comparable> Merge(){
@@ -132,10 +134,13 @@ public class Sortings {
         }
         return ordenados;
     }
+=======
+    
+>>>>>>> 7c2708d111a61c337b11b19e785e583a3ed8af78
     
     /**
      * Realiza un bubble sort, complejidad de n^2
-     * @return 
+     * @return la lista ya ordenada
      */
     private ArrayList<Comparable> Bubble(){
         ArrayList<Comparable> ordenados=new ArrayList<Comparable>();
