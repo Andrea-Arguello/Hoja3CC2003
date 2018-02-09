@@ -12,33 +12,29 @@ import java.util.ArrayList;
  * @author massa
  */
 public class Sortings {
-    
-    private ArrayList<Comparable> numeros;
-    
-    public Sortings (ArrayList<Comparable> ingreso){
-        numeros= new ArrayList<Comparable>();
-        for(Comparable i: ingreso){
-        }
-    }
-    
-    public ArrayList<Comparable> Gnome(){
-   for ( int i = 1; i < numeros.size(); ) { 
-         if((int)numeros.get(i-1) <=(int) numeros.get(i)){ //Se debe usar compareTo, devuelve -1 si es menor, 1 si es mayor, 0 si es igual
-            i++; 
-         } else { 
-            int tempVal = (int) numeros.get(i); 
-            numeros.set(i, numeros.get(i - 1)); 
-            numeros.set(i - 1, tempVal); 
-            i--; 
-            if ( i == 0 ) { 
-               i = 1; 
-            }           
-         } 
-      }
-        return numeros;
-       
-    } 
-    
+    public static Comparable[] gnome(Comparable[] lista, int i)
+	{
+		int index = 0;
+
+		while (index < i)
+		{
+			if (index == 0)
+				index++;
+			if (lista[index].compareTo(lista[index-1]) >= 0)
+				index++;
+			else
+			{
+				Comparable temp;
+				temp = lista[index];
+				lista[index] = lista[index-1];
+				lista[index-1] = temp;
+				index--;
+			}
+		}
+		return lista;
+	}
+  // Code Contributed by Mohit Gupta_OMG
+// Extraido de https://ide.geeksforgeeks.org/index.php
     private ArrayList<Comparable> QS(){
         
         
