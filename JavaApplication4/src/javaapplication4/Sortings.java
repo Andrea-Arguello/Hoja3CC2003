@@ -12,6 +12,17 @@ import java.util.ArrayList;
  * @author massa
  */
 public class Sortings {
+    
+    protected Comparable[] numeros;
+    
+    public Sortings (ArrayList<Comparable> ingreso){
+        numeros= new Comparable[3000];
+        for(Comparable i: ingreso){
+            for(int j=0;j<ingreso.size();j++){
+            numeros[j]=i;
+            }
+        }
+    }
 
     public static Comparable[] gnome(Comparable[] lista, int i)
 	{
@@ -38,16 +49,6 @@ public class Sortings {
 // Extraido de https://ide.geeksforgeeks.org/index.php
 
     
-    protected ArrayList<Comparable> numeros;
-    
-    public Sortings (ArrayList<Comparable> ingreso){
-        numeros= new ArrayList<Comparable>();
-        for(Comparable i: ingreso){
-            for(int j=0;j<ingreso.size();j++){
-            numeros.set(j,i);
-            }
-        }
-    }
     
     
     public static int partition(Comparable arr[], int low, int high){
@@ -185,16 +186,16 @@ public class Sortings {
      * Realiza un bubble sort, complejidad de n^2
      * @return la lista ya ordenada
      */
-    private ArrayList<Comparable> Bubble(){
-        ArrayList<Comparable> ordenados=new ArrayList<Comparable>();
-        for(int i=0; i<numeros.size();i++){
-            for(int j=0; j<numeros.size()-i; j++){
-            int resultado=numeros.get(j).compareTo(numeros.get(j+1));
+    private Comparable[] Bubble(){
+        Comparable[] ordenados=new Comparable[3000];
+        for(int i=0; i<numeros.length;i++){
+            for(int j=0; j<numeros.length-i; j++){
+            int resultado=numeros[j].compareTo(numeros[j+1]);
             if(resultado==1){
-                Comparable mayor=numeros.get(j);
-                Comparable menor=numeros.get(j+1);
-                ordenados.set(j+1, mayor);
-                ordenados.set(j,menor);}
+                Comparable mayor=numeros[j];
+                Comparable menor=numeros[j+1];
+                ordenados[j+1]=mayor;
+                ordenados[j]=menor;}
             }
         }
         return ordenados;

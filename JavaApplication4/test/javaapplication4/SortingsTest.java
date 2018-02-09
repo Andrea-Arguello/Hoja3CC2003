@@ -24,5 +24,26 @@ public class SortingsTest {
     public void testGnome() {
         
     }
+
+    /**
+     * Test of partition method, of class Sortings.
+     */
+    @Test
+    public void testPartition() {
+    }
+
+    /**
+     * Test of sort method, of class Sortings.
+     */
+    @Test
+    public void testSort() {
+    }
+
+    /**
+     * Test of mergeSort method, of class Sortings.
+     */
+    @Test
+    public void testMergeSort() {
+    }
     
 }
