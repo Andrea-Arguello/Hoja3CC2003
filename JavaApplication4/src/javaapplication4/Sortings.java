@@ -50,7 +50,7 @@ public class Sortings {
       
     
    //QUICK SORT-----------------------------------------------------------------------------------------------
-    public int QS(Comparable arr[], int low, int high){
+    public int Particion(Comparable arr[], int low, int high){
         
          Comparable pivot = arr[high]; 
         int i = (low-1); // index of smaller element
@@ -77,7 +77,24 @@ public class Sortings {
         return i+1;
     }
  
-
+     public  Comparable[] sort(Comparable arr[], int low, int high)
+    {
+        if (low < high)
+        {
+            /* pi is partitioning index, arr[pi] is 
+              now at right place */
+            int pi = Particion(arr, low, high);
+ 
+            // Recursively sort elements before
+            // partition and after partition
+            sort(arr, low, pi-1);
+            sort(arr, pi+1, high);
+        }
+        return arr;
+    }
+    
+    
+    // FIN QUICKSORT-------------------------------------------------------------------------
     /**
      * Realiza un bubble sort, complejidad de n^2
      * @return la lista ya ordenada
