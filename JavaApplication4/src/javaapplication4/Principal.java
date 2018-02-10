@@ -40,9 +40,7 @@ public class Principal{
             }
         Sortings sorting = new Sortings(expresion); 
         Radix radix = new Radix();
-        Merge merge = new Merge();
         radix.radixSort(listaexpresion);
-        merge.dividir(expresion);
             System.out.println("Que sorting desea utilizar?\n 1. Gnome\n 2. Merge\n 3. Quicksort\n 4. Radix\n 5. Bubble");
         } catch (Exception e) {
             System.out.println("Este archivo no existe");

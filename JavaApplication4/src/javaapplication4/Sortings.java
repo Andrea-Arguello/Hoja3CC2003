@@ -24,70 +24,33 @@ public class Sortings {
         }
     }
 
-    public Comparable[] gnome()
+    public static Comparable[] gnome(Comparable[] lista, int i)
 	{
-            Comparable[] ordenados=new Comparable[3000];
 		int index = 0;
-            for(Comparable i: numeros){
-                for(int j=0;j<numeros.length;j++){
-                ordenados[j]=i;
-                }
-		while (index < 3000)
+
+		while (index < i)
 		{
 			if (index == 0)
 				index++;
-			if (ordenados[index].compareTo(ordenados[index-1]) >= 0)
+			if (lista[index].compareTo(lista[index-1]) >= 0)
 				index++;
 			else
 			{
 				Comparable temp;
-				temp = ordenados[index];
-				ordenados[index] = ordenados[index-1];
-				ordenados[index-1] = temp;
+				temp = lista[index];
+				lista[index] = lista[index-1];
+				lista[index-1] = temp;
 				index--;
 			}
 		}
-		
-	}
-            return ordenados;
+		return lista;
         }
-  // Code Contributed by Mohit Gupta_OMG
-// Extraido de https://ide.geeksforgeeks.org/index.php
-
-    /**
-     *
-     * @param arr
-     * @param low
-     * @param high
-     * @return
-     */
-    public static int partition(Comparable arr[], int low, int high){
-        Comparable pivot = arr[high]; 
-        int i = (low-1); // index of smaller element
-        for (int j=low; j<high; j++)
-        {
-            // If current element is smaller than or
-            // equal to pivot
-            if (arr[j].compareTo(pivot) <= 0 )
-            {
-                i++;
- 
-                // swap arr[i] and arr[j]
-                Comparable temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
- 
-        // swap arr[i+1] and arr[high] (or pivot)
-        Comparable temp = arr[i+1];
-        arr[i+1] = arr[high];
-        arr[high] = temp;
- 
-        return i+1;
-    }
     
-    
+    /** The main function that implements QuickSort()
+      arr[] --> Array to be sorted,
+      low  --> Starting index,
+      high  --> Ending index */
+   
     public int QS(Comparable arr[], int low, int high){
         
          Comparable pivot = arr[high]; 
@@ -115,40 +78,9 @@ public class Sortings {
         return i+1;
     }
  
- 
-    /* The main function that implements QuickSort()
-      arr[] --> Array to be sorted,
-      low  --> Starting index,
-      high  --> Ending index */
-   /**
-    * Funcion principal que ordena una lista de objetos que implementan la clase Comparable utilizando QuickSort
-    * @param arr
-    * @param low
-    * @param high
-    * @return
-    */
-    public static Comparable[] sort(Comparable arr[], int low, int high)
-    {
-        if (low < high)
-        {
-            /* pi is partitioning index, arr[pi] is 
-              now at right place */
-            int pi = partition(arr, low, high);
- 
-            // Recursively sort elements before
-            // partition and after partition
-            sort(arr, low, pi-1);
-            sort(arr, pi+1, high);
-        }
-        return arr;
-       
-    }
-
-    // Codigo obtenido de: http://www.geeksforgeeks.org/iterative-quick-sort/
-    /*This code is contributed by Rajat Mishra */
-  
+    public Comparable[] dividir(Comparable[] numerosarray){
     
-    
+<<<<<<< HEAD
    /*/ public static void mergeSort(Comparable [ ] a)
 	{
 		Comparable[] tmp = new Comparable[a.length];
@@ -185,18 +117,59 @@ public class Sortings {
 
         while(right <= rightEnd)  // Copy rest of right half
             tmp[k++] = a[right++];
+=======
+            int mitad=(int)Math.floor(numerosarray.length/2);
+            Comparable[] primeramitad=new Comparable[mitad];
+            Comparable[] segundamitad=new Comparable[numerosarray.length-mitad];
+                for(int i=0; i<mitad+1; i ++)
+                {
+                    primeramitad[i]=numerosarray[i];
+                }
+                for(int i=mitad+1; i<numerosarray.length; i ++)
+                {
+                    for(int j=0; j<numerosarray.length-mitad;j++){
+                    segundamitad[j]=numerosarray[i];}
+                }
+            
+                primeramitad=dividir(primeramitad);
+                segundamitad=dividir(segundamitad);
+                Comparable[] resultado=Merge(primeramitad,segundamitad);
+                return resultado;
+            }
+        
+>>>>>>> 52c23c4c6118d04f3b2fbe2462dbaaadaf43827e
 
-        // Copy tmp back
-        for(int i = 0; i < num; i++, rightEnd--)
-            a[rightEnd] = tmp[rightEnd];
+    
+    public Comparable[] Merge(Comparable[] uno, Comparable[] dos){
+        Comparable[] resultadofinal= new Comparable[uno.length+dos.length];
+        int index1=0;
+        int index2=0;
+        int indexans=0;
+        while(index1<uno.length || index2<dos.length){
+            if(index1<uno.length && index2<dos.length){
+                int answer = uno[index1].compareTo(dos[index2]);
+                if(answer==-1){
+                    resultadofinal[indexans]= dos[index2];
+                    index2++;
+                    indexans++;
+                }
+                else{
+                    resultadofinal[indexans]= uno[index1];
+                    index1++;
+                    indexans++;
+                }
+            }
+        }
+        return resultadofinal;
     }
+
     
 
     /**
      * Realiza un bubble sort, complejidad de n^2
      * @return la lista ya ordenada
      */
-    private Comparable[] Bubble(){
+    public Comparable[] Bubble(){
         Comparable[] ordenados=new Comparable[3000];
         for(int i=0; i<numeros.length;i++){
             for(int j=0; j<numeros.length-i; j++){
