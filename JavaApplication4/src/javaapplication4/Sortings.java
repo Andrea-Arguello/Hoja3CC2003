@@ -149,7 +149,7 @@ public class Sortings {
   
     
     
-    public static void mergeSort(Comparable [ ] a)
+   /*/ public static void mergeSort(Comparable [ ] a)
 	{
 		Comparable[] tmp = new Comparable[a.length];
 		mergeSort(a, tmp,  0,  a.length - 1);

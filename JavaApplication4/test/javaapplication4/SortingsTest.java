@@ -59,8 +59,9 @@ public class SortingsTest {
      */
     @Test
     public void testSort() {
+        
     }
-
+    
     /**
      * Test of mergeSort method, of class Sortings.
      */
