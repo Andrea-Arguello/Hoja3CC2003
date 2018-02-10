@@ -5,10 +5,7 @@
  */
 package javaapplication4;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.*;
 import Generador.Generador;
 /**
@@ -16,13 +13,35 @@ import Generador.Generador;
  * @author cooli
  */
 public class Principal{
-
+    // CREACIO DE ARCHIVO DE NUMEROS RANDOM---------------------------------------------------------------
+    public static String randomlist(String filePath, int listSize) {
+		
+        try{
+			PrintWriter archivo = new  PrintWriter(filePath, "UTF-8");
+			Random random = new Random(); // Ranndom object
+			for(int i = 0; i < listSize; i++){
+				archivo.print(random.nextInt(3000) + ","); 
+			}
+			archivo.close(); 
+			return "el archivo ha sido generado con exito";
+	}
+        catch (IOException e)
+        {
+			
+			return e.getMessage();
+		}
+	}
+   //FIN  ARCHIVO------------------------------------------------------------------------------------------- 
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
-        ArrayList<Comparable> expresion = new ArrayList<Comparable>();
+        
+        randomlist("array",3000);
+        
+      /*/  ArrayList<Comparable> expresion = new ArrayList<Comparable>();
         int[] listaexpresion = new int[3000];
         File datos = null;
         FileReader reader = null;
@@ -45,7 +64,7 @@ public class Principal{
         } catch (Exception e) {
             System.out.println("Este archivo no existe");
         }
-        
+        /*/
     }
     }
     
