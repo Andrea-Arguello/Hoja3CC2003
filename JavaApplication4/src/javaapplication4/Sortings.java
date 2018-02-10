@@ -24,10 +24,10 @@ public class Sortings {
         }
     }
 
-    public static Comparable[] gnome(Comparable[] lista, int i)
+    public Comparable[] gnome(Comparable[] lista, int i)
 	{
 		int index = 0;
-
+                i = numeros.length; //<===== aqui le asigno tamano
 		while (index < i)
 		{
 			if (index == 0)
@@ -46,11 +46,10 @@ public class Sortings {
 		return lista;
         }
     
-    /** The main function that implements QuickSort()
-      arr[] --> Array to be sorted,
-      low  --> Starting index,
-      high  --> Ending index */
-   
+  
+      
+    
+   //QUICK SORT-----------------------------------------------------------------------------------------------
     public int QS(Comparable arr[], int low, int high){
         
          Comparable pivot = arr[high]; 
@@ -78,92 +77,6 @@ public class Sortings {
         return i+1;
     }
  
-   // public Comparable[] dividir(Comparable[] numerosarray){
-    
-
-   /*/ public static void mergeSort(Comparable [ ] a)
-	{
-		Comparable[] tmp = new Comparable[a.length];
-		mergeSort(a, tmp,  0,  a.length - 1);
-	}
-
-
-	private static void mergeSort(Comparable [ ] a, Comparable [ ] tmp, int left, int right)
-	{
-		if( left < right )
-		{
-			int center = (left + right) / 2;
-			mergeSort(a, tmp, left, center);
-			mergeSort(a, tmp, center + 1, right);
-			merge(a, tmp, left, center + 1, right);
-		}
-	}
-
-
-    private static void merge(Comparable[ ] a, Comparable[ ] tmp, int left, int right, int rightEnd )
-    {
-        int leftEnd = right - 1;
-        int k = left;
-        int num = rightEnd - left + 1;
-
-        while(left <= leftEnd && right <= rightEnd)
-            if(a[left].compareTo(a[right]) <= 0)
-                tmp[k++] = a[left++];
-            else
-                tmp[k++] = a[right++];
-
-        while(left <= leftEnd)    // Copy rest of first half
-            tmp[k++] = a[left++];
-
-        while(right <= rightEnd)  // Copy rest of right half
-            tmp[k++] = a[right++];
-=======
-            int mitad=(int)Math.floor(numerosarray.length/2);
-            Comparable[] primeramitad=new Comparable[mitad];
-            Comparable[] segundamitad=new Comparable[numerosarray.length-mitad];
-                for(int i=0; i<mitad+1; i ++)
-                {
-                    primeramitad[i]=numerosarray[i];
-                }
-                for(int i=mitad+1; i<numerosarray.length; i ++)
-                {
-                    for(int j=0; j<numerosarray.length-mitad;j++){
-                    segundamitad[j]=numerosarray[i];}
-                }
-            
-                primeramitad=dividir(primeramitad);
-                segundamitad=dividir(segundamitad);
-                Comparable[] resultado=Merge(primeramitad,segundamitad);
-                return resultado;
-            }
-        
->>>>>>> 52c23c4c6118d04f3b2fbe2462dbaaadaf43827e
-
-    
-    public Comparable[] Merge(Comparable[] uno, Comparable[] dos){
-        Comparable[] resultadofinal= new Comparable[uno.length+dos.length];
-        int index1=0;
-        int index2=0;
-        int indexans=0;
-        while(index1<uno.length || index2<dos.length){
-            if(index1<uno.length && index2<dos.length){
-                int answer = uno[index1].compareTo(dos[index2]);
-                if(answer==-1){
-                    resultadofinal[indexans]= dos[index2];
-                    index2++;
-                    indexans++;
-                }
-                else{
-                    resultadofinal[indexans]= uno[index1];
-                    index1++;
-                    indexans++;
-                }
-            }
-        }
-        return resultadofinal;
-    }
-
-    
 
     /**
      * Realiza un bubble sort, complejidad de n^2
