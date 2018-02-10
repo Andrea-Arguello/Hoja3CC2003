@@ -20,12 +20,13 @@ public class SortingsTest {
     
     public SortingsTest() {
         prueba= new ArrayList<Comparable>();
-        for(int i=0; i<10; i++)
+        /*/for(int i=0; i<10; i++)
         {
             prueba.set(i,(int) Math.floor(Math.random()*3000)+1);
             System.out.println(prueba.get(i));
         }
-        sort= new Sortings(prueba);
+        sort= new Sortings(prueba);/*/
+        
     }
 
     /**
@@ -37,7 +38,7 @@ public class SortingsTest {
         boolean expected= true;
         boolean real=false;
         for(int i=1; i<prueba.size();i++){
-            if(prueba.get(i+1).compareTo(prueba.get(i))==-1){
+            if(prueba.get(i+1).compareTo(prueba.get(i))== -1){
                 real=false;
             }
             else{

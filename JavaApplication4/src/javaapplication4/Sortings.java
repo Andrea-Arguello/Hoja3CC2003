@@ -78,9 +78,9 @@ public class Sortings {
         return i+1;
     }
  
-    public Comparable[] dividir(Comparable[] numerosarray){
+   // public Comparable[] dividir(Comparable[] numerosarray){
     
-<<<<<<< HEAD
+
    /*/ public static void mergeSort(Comparable [ ] a)
 	{
 		Comparable[] tmp = new Comparable[a.length];
