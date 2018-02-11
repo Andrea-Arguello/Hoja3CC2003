@@ -74,11 +74,16 @@ public class Principal{
         
         Sortings sorts = new Sortings();
         Radix rad= new Radix();
+        sorts.Particion(lista,0,2999);
+        sorts.merge(lista, 0, 1499, 2999);
         System.out.println("Lista sin ordenar: " + Arrays.toString(lista));
+        System.out.println("LISTAS ORDENADAS: ");
+        System.out.println();
+        System.out.println("lista ordenada por QuickSort" + Arrays.toString(sorts.sort(lista, 0,2999)));
         System.out.println("Lista ordenada por Radix sort" + Arrays.toString(rad.radixSort(listaint)));
         System.out.println("Lista ordenada por Gnome sort" + Arrays.toString(sorts.gnome(lista)));
         System.out.println("Lista ordenada por Bubble sort" + Arrays.toString(sorts.Bubble(lista)));
-        System.out.println("Lista ordenada por Merge sort" + Arrays.toString(sorts.dividir(lista)));
+        System.out.println("Lista ordenada por Merge sort" + Arrays.toString(sorts.mergesort(lista,0,2999)));
     }
     }
     
