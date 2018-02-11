@@ -13,21 +13,14 @@ import java.util.ArrayList;
  */
 public class Sortings {
     
-    protected Comparable[] numeros;
-    
-    public Sortings (ArrayList<Comparable> ingreso){
-        numeros= new Comparable[3000];
-        for(Comparable i: ingreso){
-            for(int j=0;j<ingreso.size();j++){
-            numeros[j]=i;
-            }
-        }
+    public Sortings (){
+        
     }
 
-    public Comparable[] gnome(Comparable[] lista, int i)
+    public Comparable[] gnome(Comparable[] lista)
 	{
 		int index = 0;
-                i = numeros.length; //<===== aqui le asigno tamano
+                int i = lista.length; //<===== aqui le asigno tamano
 		while (index < i)
 		{
 			if (index == 0)
@@ -95,10 +88,7 @@ public class Sortings {
     
     
     // FIN QUICKSORT-------------------------------------------------------------------------
-    /**
-     * Realiza un bubble sort, complejidad de n^2
-     * @return la lista ya ordenada
-     */
+    
      //MERGE SORT ------------------------------------------------------------------------------
      
      
@@ -107,11 +97,11 @@ public class Sortings {
             int mitad=(int)Math.floor(numerosarray.length/2);
             Comparable[] primeramitad=new Comparable[mitad];
             Comparable[] segundamitad=new Comparable[numerosarray.length-mitad];
-                for(int i=0; i<mitad+1; i ++)
+                for(int i=0; i<mitad; i ++)
                 {
                     primeramitad[i]=numerosarray[i];
                 }
-                for(int i=mitad+1; i<numerosarray.length; i ++)
+                for(int i=mitad; i<numerosarray.length; i ++)
                 {
                     for(int j=0; j<numerosarray.length-mitad;j++){
                     segundamitad[j]=numerosarray[i];}
@@ -152,16 +142,21 @@ public class Sortings {
      
      
      //FIN SORT ------------------------------------------------------------------------------
-     public Comparable[] Bubble(){
-        Comparable[] ordenados=new Comparable[3000];
+    /**
+     * Realiza un bubble sort, complejidad de n^2
+     * @return la lista ya ordenada
+     */
+     public Comparable[] Bubble(Comparable[] numeros){
+        Comparable[] ordenados=new Comparable[numeros.length];
         for(int i=0; i<numeros.length;i++){
-            for(int j=0; j<numeros.length-i; j++){
+            for(int j=0; j<numeros.length-1; j++){
             int resultado=numeros[j].compareTo(numeros[j+1]);
             if(resultado==1){
-                Comparable mayor=numeros[j];
-                Comparable menor=numeros[j+1];
-                ordenados[j+1]=mayor;
-                ordenados[j]=menor;}
+                ordenados[j+1]=numeros[j];
+                ordenados[j]=numeros[j+1];}
+            else{
+                ordenados[j]=numeros[j];
+            }
             }
         }
         return ordenados;

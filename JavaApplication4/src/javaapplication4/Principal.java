@@ -7,7 +7,6 @@ package javaapplication4;
 
 import java.io.*;
 import java.util.*;
-import Generador.Generador;
 /**
  *
  * @author cooli
@@ -36,35 +35,50 @@ public class Principal{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
-        // TODO code application logic here
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
         
-        randomlist("array",3000);
-        
-      /*/  ArrayList<Comparable> expresion = new ArrayList<Comparable>();
-        int[] listaexpresion = new int[3000];
-        File datos = null;
-        FileReader reader = null;
-        BufferedReader buffer = null;
-        try {
-            datos = new File("CONCATENAR.txt");
-            reader = new FileReader(datos);
-            buffer = new BufferedReader(reader);
-            String ingreso;
-            while ((ingreso = buffer.readLine()) != null) {
-                expresion.add(Integer.parseInt(ingreso));
-                for(int i=0; i<listaexpresion.length;i++){
-                    listaexpresion[i]=Integer.parseInt(ingreso);
-                }
+        //Esto de aqui te crea el archivo txt con numeros Random
+          
+   
+         try {
+            PrintWriter writer = new PrintWriter("CONCATENAR.txt", "UTF-8");
+            for (int i=0; i<3000; i++){ 
+                int randomInt = (int)Math.floor(Math.random()*3000);
+                writer.println(randomInt); 
             }
-        Sortings sorting = new Sortings(expresion); 
-        Radix radix = new Radix();
-        radix.radixSort(listaexpresion);
-            System.out.println("Que sorting desea utilizar?\n 1. Gnome\n 2. Merge\n 3. Quicksort\n 4. Radix\n 5. Bubble");
-        } catch (Exception e) {
-            System.out.println("Este archivo no existe");
+            writer.close();
+            
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        /*/
+        
+        //Lee el txt y lo convierte en lista de comparables y de int
+        FileReader file = new FileReader("CONCATENAR.txt");
+        Comparable[] lista  = new Comparable[3000];
+        int[] listaint = new int[3000];
+        int i=0;
+        try {
+            Scanner input = new Scanner(file);
+            while(input.hasNext())
+            {
+                lista[i] = input.nextInt();
+                listaint[i]=(int) lista[i];
+                i++;
+           
+            }
+            input.close();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        } 
+        
+        Sortings sorts = new Sortings();
+        Radix rad= new Radix();
+        System.out.println("Lista sin ordenar: " + Arrays.toString(lista));
+        System.out.println("Lista ordenada por Radix sort" + Arrays.toString(rad.radixSort(listaint)));
+        System.out.println("Lista ordenada por Gnome sort" + Arrays.toString(sorts.gnome(lista)));
+        System.out.println("Lista ordenada por Bubble sort" + Arrays.toString(sorts.Bubble(lista)));
+        System.out.println("Lista ordenada por Merge sort" + Arrays.toString(sorts.dividir(lista)));
     }
     }
     

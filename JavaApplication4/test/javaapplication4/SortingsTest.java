@@ -16,16 +16,18 @@ import static org.junit.Assert.*;
 public class SortingsTest {
     
     private Sortings sort;
-    private ArrayList<Comparable> prueba;
+    private Comparable[] prueba;
+    
     
     public SortingsTest() {
-        prueba= new ArrayList<Comparable>();
-        /*/for(int i=0; i<10; i++)
+        prueba= new Comparable[10];
+        System.out.println("Array de prueba");
+        for(int i=0; i<10; i++)
         {
-            prueba.set(i,(int) Math.floor(Math.random()*3000)+1);
-            System.out.println(prueba.get(i));
+            prueba[i]=(int) Math.floor(Math.random()*3000)+1;
+            System.out.println(prueba[i]);
         }
-        sort= new Sortings(prueba);/*/
+        sort= new Sortings();
         
     }
 
@@ -34,11 +36,11 @@ public class SortingsTest {
      */
     @Test
     public void testGnome() {
-        sort.gnome();
+        Comparable[] result=sort.gnome(prueba);
         boolean expected= true;
         boolean real=false;
-        for(int i=1; i<prueba.size();i++){
-            if(prueba.get(i+1).compareTo(prueba.get(i))== -1){
+        for(int i=1; i<result.length;i++){
+            if(result[i].compareTo(result[i-1])== -1){
                 real=false;
             }
             else{
@@ -48,26 +50,45 @@ public class SortingsTest {
         assertEquals(expected, real);
     }
 
+   
     /**
-     * Test of partition method, of class Sortings.
+     * Test of Particion method, of class Sortings.
      */
     @Test
-    public void testPartition() {
+    public void testParticion() {
     }
 
     /**
-     * Test of sort method, of class Sortings.
+     * Test of dividir method, of class Sortings.
      */
     @Test
-    public void testSort() {
-        
+    public void testDividir() {
     }
-    
+
     /**
-     * Test of mergeSort method, of class Sortings.
+     * Test of Merge method, of class Sortings.
      */
     @Test
-    public void testMergeSort() {
+    public void testMerge() {
+    }
+
+    /**
+     * Test of Bubble method, of class Sortings.
+     */
+    @Test
+    public void testBubble() {
+        Comparable[] result=sort.Bubble(prueba);
+        boolean expected= true;
+        boolean real=false;
+        for(int i=1; i<result.length;i++){
+            if(result[i].compareTo(result[i-1])== -1){
+                real=false;
+            }
+            else{
+                real=true;
+            }
+        }
+        assertEquals(expected, real);
     }
     
 }
