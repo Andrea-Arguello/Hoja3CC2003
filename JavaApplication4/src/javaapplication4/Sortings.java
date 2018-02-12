@@ -92,53 +92,7 @@ public class Sortings {
      //MERGE SORT ------------------------------------------------------------------------------
      
      
-     /*/
-     public Comparable[] dividir(Comparable[] numerosarray){
-            int mitad=(int)Math.floor(numerosarray.length/2);
-            Comparable[] primeramitad=new Comparable[mitad];
-            Comparable[] segundamitad=new Comparable[numerosarray.length-mitad];
-                for(int i=0; i<mitad; i ++)
-                {
-                    primeramitad[i]=numerosarray[i];
-                }
-                for(int i=mitad; i<numerosarray.length; i ++)
-                {
-                    for(int j=0; j<numerosarray.length-mitad;j++){
-                    segundamitad[j]=numerosarray[i];}
-                }
-            
-                primeramitad=dividir(primeramitad);
-                segundamitad=dividir(segundamitad);
-                Comparable[] resultado=Merge(primeramitad,segundamitad);
-                return resultado;
-            }
-        
-
-    
-   public Comparable[] Merge(Comparable[] uno, Comparable[] dos){
-        Comparable[] resultadofinal= new Comparable[uno.length+dos.length];
-        int index1=0;
-        int index2=0;
-        int indexans=0;
-        while(index1<uno.length || index2<dos.length){
-            if(index1<uno.length && index2<dos.length){
-                int answer = uno[index1].compareTo(dos[index2]);
-                if(answer==-1){
-                    resultadofinal[indexans]= dos[index2];
-                    index2++;
-                    indexans++;
-                }
-                else{
-                    resultadofinal[indexans]= uno[index1];
-                    index1++;
-                    indexans++;
-                }
-            }
-        }
-        return resultadofinal;
-    }
-     
-     /*/
+  
       void merge(Comparable arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
@@ -158,10 +112,10 @@ public class Sortings {
  
         /* Merge the temp arrays */
  
-        // Initial indexes of first and second subarrays
+        // indices iniciales de subarrays
         int i = 0, j = 0;
  
-        // Initial index of merged subarry array
+        // indice de subarray inicial
         int k = l;
         while (i < n1 && j < n2)
         {
@@ -178,7 +132,7 @@ public class Sortings {
             k++;
         }
  
-        /* Copy remaining elements of L[] if any */
+        /* Copiar elementos restantes de L[] si hay */
         while (i < n1)
         {
             arr[k] = L[i];
@@ -186,7 +140,7 @@ public class Sortings {
             k++;
         }
  
-        /* Copy remaining elements of R[] if any */
+        /* Copiar elementos restantes de  R[] si hay */
         while (j < n2)
         {
             arr[k] = R[j];
@@ -213,7 +167,7 @@ public class Sortings {
         }
         return arr;
     }
-     //codigo obtenido de: https://www.geeksforgeeks.org/merge-sort/
+     //codigo apoyado en el de: https://www.geeksforgeeks.org/merge-sort/
      //FIN SORT ------------------------------------------------------------------------------
     /**
      * Realiza un bubble sort, complejidad de n^2
