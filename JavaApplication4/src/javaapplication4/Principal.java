@@ -54,15 +54,24 @@ public class Principal{
         
         //Lee el txt y lo convierte en lista de comparables y de int
         FileReader file = new FileReader("CONCATENAR.txt");
-        Comparable[] lista  = new Comparable[3000];
+        Comparable[] listaoriginal  = new Comparable[3000];
+        Comparable[] listaBubble  = new Comparable[3000];
+        Comparable[] listaGnome  = new Comparable[3000];
+        Comparable[] listaMerge  = new Comparable[3000];
+        Comparable[] listaQS  = new Comparable[3000];
         int[] listaint = new int[3000];
         int i=0;
         try {
             Scanner input = new Scanner(file);
             while(input.hasNext())
             {
-                lista[i] = input.nextInt();
-                listaint[i]=(int) lista[i];
+                listaoriginal[i] = input.nextInt();
+                listaBubble[i]=listaoriginal[i];
+                listaQS[i]=listaoriginal[i];
+                listaMerge[i]=listaoriginal[i];
+                listaGnome[i]=listaoriginal[i];
+                listaint[i]=(int) listaoriginal[i];
+                
                 i++;
            
             }
@@ -74,16 +83,18 @@ public class Principal{
         
         Sortings sorts = new Sortings();
         Radix rad= new Radix();
-        sorts.Particion(lista,0,2999);
-        sorts.merge(lista, 0, 1499, 2999);
-        System.out.println("Lista sin ordenar: " + Arrays.toString(lista));
+        System.out.println("Lista sin ordenar: " + Arrays.toString(listaoriginal));
         System.out.println("LISTAS ORDENADAS: ");
         System.out.println();
-        System.out.println("lista ordenada por QuickSort" + Arrays.toString(sorts.sort(lista, 0,2999)));
+        
+        sorts.Particion(listaQS,0,listaQS.length-1);
+        sorts.merge(listaMerge, 0, (listaMerge.length/2)-1, listaMerge.length);
+        System.out.println("lista ordenada por QuickSort" + Arrays.toString(sorts.sort(listaQS, 0,2999)));
         System.out.println("Lista ordenada por Radix sort" + Arrays.toString(rad.radixSort(listaint)));
-        System.out.println("Lista ordenada por Gnome sort" + Arrays.toString(sorts.gnome(lista)));
-        System.out.println("Lista ordenada por Bubble sort" + Arrays.toString(sorts.Bubble(lista)));
-        System.out.println("Lista ordenada por Merge sort" + Arrays.toString(sorts.mergesort(lista,0,2999)));
+        System.out.println("Lista ordenada por Gnome sort" + Arrays.toString(sorts.gnome(listaGnome)));
+        System.out.println("Lista ordenada por Bubble sort" + Arrays.toString(sorts.Bubble(listaBubble)));
+        System.out.println("Lista ordenada por Merge sort" + Arrays.toString(sorts.mergesort(listaMerge,0,2999)));
+        
     }
     }
     

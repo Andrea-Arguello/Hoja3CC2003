@@ -17,6 +17,11 @@ public class Sortings {
         
     }
 
+    /**
+     * 
+     * @param lista lista a ordenar
+     * @return lista ordeanda
+     */
     public Comparable[] gnome(Comparable[] lista)
 	{
 		int index = 0;
@@ -43,6 +48,13 @@ public class Sortings {
       
     
    //QUICK SORT-----------------------------------------------------------------------------------------------
+    /**
+     * Parte el quick sort
+     * @param arr array
+     * @param low minimo
+     * @param high maximo
+     * @return int 
+     */
     public int Particion(Comparable arr[], int low, int high){
         
          Comparable pivot = arr[high]; 
@@ -66,10 +78,17 @@ public class Sortings {
         Comparable temp = arr[i+1];
         arr[i+1] = arr[high];
         arr[high] = temp;
- 
         return i+1;
+        
     }
  
+    /**
+     * Ordena el array del quick sort
+     * @param arr array
+     * @param low minimo
+     * @param high maximo
+     * @return array ordenado
+     */
      public  Comparable[] sort(Comparable arr[], int low, int high)
     {
         if (low < high)
@@ -91,59 +110,19 @@ public class Sortings {
     
      //MERGE SORT ------------------------------------------------------------------------------
      
-     
-     /*/
-     public Comparable[] dividir(Comparable[] numerosarray){
-            int mitad=(int)Math.floor(numerosarray.length/2);
-            Comparable[] primeramitad=new Comparable[mitad];
-            Comparable[] segundamitad=new Comparable[numerosarray.length-mitad];
-                for(int i=0; i<mitad; i ++)
-                {
-                    primeramitad[i]=numerosarray[i];
-                }
-                for(int i=mitad; i<numerosarray.length; i ++)
-                {
-                    for(int j=0; j<numerosarray.length-mitad;j++){
-                    segundamitad[j]=numerosarray[i];}
-                }
-            
-                primeramitad=dividir(primeramitad);
-                segundamitad=dividir(segundamitad);
-                Comparable[] resultado=Merge(primeramitad,segundamitad);
-                return resultado;
-            }
-        
-
-    
-   public Comparable[] Merge(Comparable[] uno, Comparable[] dos){
-        Comparable[] resultadofinal= new Comparable[uno.length+dos.length];
-        int index1=0;
-        int index2=0;
-        int indexans=0;
-        while(index1<uno.length || index2<dos.length){
-            if(index1<uno.length && index2<dos.length){
-                int answer = uno[index1].compareTo(dos[index2]);
-                if(answer==-1){
-                    resultadofinal[indexans]= dos[index2];
-                    index2++;
-                    indexans++;
-                }
-                else{
-                    resultadofinal[indexans]= uno[index1];
-                    index1++;
-                    indexans++;
-                }
-            }
-        }
-        return resultadofinal;
-    }
-     
-     /*/
-      void merge(Comparable arr[], int l, int m, int r)
+     /**
+      * Une las dos mitades
+      * @param arr array
+      * @param l minimo
+      * @param m mitad
+      * @param r maximo
+      */
+      public void merge(Comparable arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
         int n2 = r - m;
+        
  
         /* Create temp arrays */
         int L[] = new int [n1];
@@ -197,6 +176,13 @@ public class Sortings {
  
     // Main function that sorts arr[l..r] using
     // merge()
+      /**
+       * ordena el array
+       * @param arr array 
+       * @param l minimo
+       * @param r maximo
+       * @return array ordenado
+       */
    public Comparable[] mergesort( Comparable arr[], int l, int r)
     {
         if (l < r)
@@ -215,24 +201,26 @@ public class Sortings {
     }
      //codigo obtenido de: https://www.geeksforgeeks.org/merge-sort/
      //FIN SORT ------------------------------------------------------------------------------
+   
+   //BUBBLE SORT------------------------------------------------------------------------------
     /**
      * Realiza un bubble sort, complejidad de n^2
      * @return la lista ya ordenada
      */
      public Comparable[] Bubble(Comparable[] numeros){
-        Comparable[] ordenados=new Comparable[numeros.length];
-        for(int i=0; i<numeros.length;i++){
-            for(int j=0; j<numeros.length-1; j++){
-            int resultado=numeros[j].compareTo(numeros[j+1]);
-            if(resultado==1){
-                ordenados[j+1]=numeros[j];
-                ordenados[j]=numeros[j+1];}
-            else{
-                ordenados[j]=numeros[j];
-            }
-            }
+        Comparable temporal;
+        for(int i=0; i<numeros.length-1;i++){
+            for(int j=0; j<numeros.length-i-1; j++){
+                int resultado=numeros[j].compareTo(numeros[j+1]);
+                if(resultado==1){
+                    temporal=numeros[j];
+                    numeros[j]=numeros[j+1];
+                    numeros[j+1]=temporal;}
+                
+                }
+            
         }
-        return ordenados;
+        return numeros;
     }
     
 }
